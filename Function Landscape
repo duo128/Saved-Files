@@ -12,23 +12,12 @@ def draw():
     background(135,206,250)
     
     draw_sun(620,height/12)
-    draw_cloudpart(x, height/3, 70, 70)
-    draw_cloudpart(x + 50, height/3, 70,70)
-    draw_cloudpart(x + 100, height/3,70,70)
-    draw_cloudpart(x + 25, height/3.8,70,70)
-    draw_cloudpart(x + 75, height/3.8,70,70)
-    draw_cloudpart(x + 50, height/4.2,70,70)
-    draw_mountain(-100,480,100,200,300,480)
-    draw_mountain(125,480,275,239,425,480)
-    draw_mountain(280,480,430,250,580,480)
-    draw_mountain(425,480,625,220,825,480)
+    draw_cloud(x + 50)
+    draw_mountains(100,100)
     draw_grass(-10,430)
-    draw_treetrunk(150,420)
-    draw_treetrunk(95,420)
-    draw_treetrunk(40,420)
-    draw_treetop(155,420)
-    draw_treetop(100,420)
-    draw_treetop(45,420)
+    draw_tree(100,420)
+    draw_tree(155,420)
+    draw_tree(45,420)
     draw_pond(250,455)
     
 def draw_sun(x,y):
@@ -36,24 +25,31 @@ def draw_sun(x,y):
     fill(255,255,0)
     ellipse(x,y,200,200)
 
-def draw_cloudpart(a,b,c,d):
+def draw_cloud(x):
     fill(255,255,255)
-    ellipse(a,b,c,d)
+    ellipse(x, height/3, 70, 70)
+    ellipse(x + 50, height/3, 70,70)
+    ellipse(x + 100, height/3,70,70)
+    ellipse(x + 25, height/3.8,70,70)
+    ellipse(x + 75, height/3.8,70,70)
+    ellipse(x + 50, height/4.2,70,70)
+
     
-def draw_mountain(x1,y1,x2,y2,x3,y3):
+def draw_mountains(x,y):
     noStroke()
     fill(119,136,153)
-    triangle(x1,y1,x2,y2,x3,y3)
+    triangle(-100,480,100,200,300,480)
+    triangle(125,480,275,239,425,480)
+    triangle(280,480,430,250,580,480)
+    triangle(425,480,625,220,825,480)
               
 def draw_grass(x,y):
     fill(34,139,34)
     rect(x,y,680,100)
-
-def draw_treetrunk(x,y):
+    
+def draw_tree(x,y):
     fill(116,94,61) 
     rect(x,y,10,40)
-
-def draw_treetop(x,y):
     fill(0,200,0)
     ellipse(x,y,50,50)
 
