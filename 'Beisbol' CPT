@@ -1,0 +1,49 @@
+ballx = 0
+bally = 500
+movement = 10
+upmovement = 0
+
+def setup():
+    fullScreen()
+    
+def draw():
+    global ballx
+    global bally
+    background(135, 206, 260)
+#"Power Gradient"
+    noStroke()
+    fill(255,0,0)
+    rect(800,475,100,50)
+    fill(255,69,0)
+    rect(900,475,100,50)
+    fill(255,255,0)
+    rect(1000,475,100,50)
+#Baseball
+    fill(255,255,255)
+    ellipse(ballx, bally, 10, 10)
+    ballx += movement
+    bally += upmovement
+    if ballx > 1500:
+        ballx = 0
+    
+def keyPressed():
+    global ballx
+    global bally
+    global movement
+    global upmovement
+    if ballx in range(800,900):
+        movement -= 20
+        upmovement -= 15
+    if ballx in range(900,1000):
+        movement -= 30
+        upmovement -= 10
+    if ballx in range(1000,1100):
+        movement -= 15
+        upmovement += 15
+    if ballx < 0:
+        ballx = 0
+        bally = 500
+
+
+        
+    
