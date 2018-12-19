@@ -1,0 +1,62 @@
+import random
+ballx = 800
+bally = 400
+ballW = 10
+ballH = 10
+xmovement = 8
+ymovement = 15
+ballsizex = 1
+ballsizey = 1
+
+def setup():
+    fullScreen()
+
+def draw():
+    global ballx
+    global bally
+    global ballW
+    global ballH
+    global xmovement
+    global ymovement
+    global ballsizex
+    global ballsizey
+    
+    background(135, 206, 260)
+    
+    stroke(0,0,0)
+    fill(135, 206, 260)
+    rect(900, 600, 200, 250)
+
+    fill(255)
+    noStroke()
+    ellipse(ballx, bally, ballW, ballH)
+    bally += ymovement
+    #for i in range(1):
+        #xmovement = random.randint(-5,5)
+    ballx += xmovement
+    for x in range(1):
+        ylocation = random.randint(600, 850)
+    if bally > ylocation:
+        ymovement = 0
+        xmovement = 0
+    ballH += ballsizey
+    ballW += ballsizex
+    if ballH > 30:
+        ballsizex = 0
+        ballsizey = 0
+
+def keyPressed():
+    global ballx
+    global bally
+    global ballW
+    global ballH
+    global xmovement
+    global ymovement
+    global ballsizex
+    global ballsizey
+    #timing is based on baseball size at time of swing
+    if bally in range(0, 700):
+        ymovement = -20
+        xmovement = -10
+        ballsizex = -1
+        ballsizey = -1
